@@ -1,6 +1,7 @@
 class Game {
   constructor(app, helpers = {}) {
     this.app = app;
+    this.storage = typeof localStorage !== 'undefined' ? localStorage : { getItem: () => 0, setItem: () => {} };
 
     // External helpers with safe fallbacks for easier testing.
     this.createSprite = helpers.createSprite || ((id, opts = {}) => ({ id, ...opts, anchor: { set() {} }, scale: { x: 1, y: 1, set(v) { this.x = v; this.y = v; } } }));
@@ -18,7 +19,7 @@ class Game {
 
     this.gameState = this.STATE.START;
     this.score = 0;
-    this.bestScore = Number(localStorage.getItem('sky_hopper_best') || 0);
+    this.bestScore = Number(this.storage.getItem('sky_hopper_best') || 0);
 
     this.baseSpeed = 3;
     this.currentSpeed = this.baseSpeed;
@@ -303,7 +304,7 @@ class Game {
 
     if (this.score > this.bestScore) {
       this.bestScore = this.score;
-      localStorage.setItem('sky_hopper_best', String(this.bestScore));
+      this.storage.setItem('sky_hopper_best', String(this.bestScore));
     }
 
     this.bestText.text = `Best: ${this.bestScore}`;
