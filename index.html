@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Idle Moto Empire</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>🏍️ Idle Moto Empire</h1>
+        <p>Costruisci il tuo impero tra garage, crew, officine e moto leggendarie.</p>
+      </header>
+
+      <section class="stats card">
+        <div>
+          <h2>Crediti</h2>
+          <p id="credits" class="big">0</p>
+        </div>
+        <div>
+          <h2>Produzione / sec</h2>
+          <p id="cps" class="big">0</p>
+        </div>
+        <button id="ride-btn" class="primary">Fai un giro (+<span id="click-gain">1</span>)</button>
+      </section>
+
+      <section class="grid">
+        <article class="card" id="moto-card">
+          <h3>Moto</h3>
+          <p>Ogni moto produce crediti automaticamente.</p>
+          <p class="price">Costo prossima moto: <span id="moto-cost">10</span></p>
+          <p>Possedute: <span id="moto-count">0</span></p>
+          <button id="buy-moto">Compra Moto</button>
+        </article>
+
+        <article class="card" id="crew-card">
+          <h3>Crew</h3>
+          <p>La crew aumenta i guadagni per clic del pilota.</p>
+          <p class="price">Costo prossima crew: <span id="crew-cost">40</span></p>
+          <p>Membri crew: <span id="crew-count">0</span></p>
+          <button id="hire-crew">Assumi Crew</button>
+        </article>
+
+        <article class="card" id="officina-card">
+          <h3>Officine</h3>
+          <p>Ogni officina moltiplica la produzione delle moto.</p>
+          <p class="price">Costo prossima officina: <span id="officina-cost">100</span></p>
+          <p>Officine: <span id="officina-count">0</span></p>
+          <button id="build-officina">Apri Officina</button>
+        </article>
+
+        <article class="card" id="garage-card">
+          <h3>Garage</h3>
+          <p>I garage espandono il tuo limite e aumentano bonus globali.</p>
+          <p class="price">Costo prossimo garage: <span id="garage-cost">250</span></p>
+          <p>Garage aperti: <span id="garage-count">0</span></p>
+          <button id="expand-garage">Espandi Garage</button>
+        </article>
+      </section>
+
+      <footer>
+        <button id="reset" class="danger">Reset partita</button>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
